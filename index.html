@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또 번호 추첨기</title>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --text-color: #212529;
+            --container-bg: #ffffff;
+            --button-bg: #007bff;
+            --button-text: #ffffff;
+            --ball-border: #ced4da;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #212529;
+            --text-color: #f8f9fa;
+            --container-bg: #343a40;
+            --button-bg: #17a2b8;
+            --button-text: #ffffff;
+            --ball-border: #495057;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            background-color: var(--container-bg);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        h1 { margin-bottom: 2rem; }
+
+        .balls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .ball {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border: 2px solid var(--ball-border);
+            background-color: var(--container-bg);
+            animation: bounce 0.5s ease;
+        }
+
+        @keyframes bounce {
+            0% { transform: scale(0); }
+            80% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            background-color: var(--button-bg);
+            color: var(--button-text);
+            font-weight: bold;
+            transition: opacity 0.2s;
+        }
+
+        button:hover { opacity: 0.9; }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: 2px solid var(--text-color);
+            color: var(--text-color);
+            padding: 8px 16px;
+        }
+
+        /* Lotto Ball Colors */
+        .ball-1-10 { background-color: #fbc400; color: #fff; border-color: #fbc400; }
+        .ball-11-20 { background-color: #69c8f2; color: #fff; border-color: #69c8f2; }
+        .ball-21-30 { background-color: #ff7272; color: #fff; border-color: #ff7272; }
+        .ball-31-40 { background-color: #aaa; color: #fff; border-color: #aaa; }
+        .ball-41-45 { background-color: #b0d840; color: #fff; border-color: #b0d840; }
+
+    </style>
+</head>
+<body>
+
+    <button class="theme-toggle" id="themeToggle">다크 모드</button>
+
+    <div class="container">
+        <h1>로또 번호 추첨</h1>
+        <div class="balls" id="lottoBalls">
+            <div class="ball">?</div>
+            <div class="ball">?</div>
+            <div class="ball">?</div>
+            <div class="ball">?</div>
+            <div class="ball">?</div>
+            <div class="ball">?</div>
+        </div>
+        <div class="controls">
+            <button id="drawBtn">번호 추첨하기</button>
+        </div>
+    </div>
+
+    <script>
+        const lottoBalls = document.getElementById('lottoBalls');
+        const drawBtn = document.getElementById('drawBtn');
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+
+        // Lotto Draw Logic
+        drawBtn.addEventListener('click', () => {
+            const numbers = [];
+            while (numbers.length < 6) {
+                const num = Math.floor(Math.random() * 45) + 1;
+                if (!numbers.includes(num)) {
+                    numbers.push(num);
+                }
+            }
+            numbers.sort((a, b) => a - b);
+
+            lottoBalls.innerHTML = '';
+            numbers.forEach(num => {
+                const ball = document.createElement('div');
+                ball.className = 'ball';
+                ball.textContent = num;
+                
+                // Color based on number
+                if (num <= 10) ball.classList.add('ball-1-10');
+                else if (num <= 20) ball.classList.add('ball-11-20');
+                else if (num <= 30) ball.classList.add('ball-21-30');
+                else if (num <= 40) ball.classList.add('ball-31-40');
+                else ball.classList.add('ball-41-45');
+
+                lottoBalls.appendChild(ball);
+            });
+        });
+
+        // Theme Toggle Logic
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                html.removeAttribute('data-theme');
+                themeToggle.textContent = '다크 모드';
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = '라이트 모드';
+            }
+        });
+    </script>
+</body>
+</html>

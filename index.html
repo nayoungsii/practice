@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>정유나가 아기인 이유</title>
+    <title>정유나가 킹받는 이유</title>
     <style>
         :root {
-            --bg-color: #fffaf0;
-            --text-color: #5d4037;
+            --bg-color: #fff5f5;
+            --text-color: #2d3436;
             --container-bg: #ffffff;
-            --accent-color: #ffb74d;
-            --toggle-bg: #ffe0b2;
-            --card-shadow: rgba(0,0,0,0.05);
+            --accent-color: #d63031;
+            --toggle-bg: #fab1a0;
+            --card-shadow: rgba(214, 48, 49, 0.1);
         }
 
         [data-theme="dark"] {
-            --bg-color: #263238;
-            --text-color: #eceff1;
-            --container-bg: #37474f;
-            --accent-color: #ffd54f;
-            --toggle-bg: #455a64;
-            --card-shadow: rgba(0,0,0,0.3);
+            --bg-color: #1e272e;
+            --text-color: #d2dae2;
+            --container-bg: #2f3542;
+            --accent-color: #ff4757;
+            --toggle-bg: #57606f;
+            --card-shadow: rgba(0, 0, 0, 0.4);
         }
 
         body {
@@ -33,112 +33,118 @@
             justify-content: center;
             min-height: 100vh;
             margin: 0;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
         }
 
         .container {
             background-color: var(--container-bg);
             padding: 3rem;
-            border-radius: 30px;
-            box-shadow: 0 20px 40px var(--card-shadow);
+            border-radius: 15px;
+            box-shadow: 0 15px 35px var(--card-shadow);
             text-align: center;
-            max-width: 600px;
+            max-width: 650px;
             width: 90%;
-            border: 2px dashed var(--accent-color);
+            border-top: 8px solid var(--accent-color);
         }
 
         h1 {
             color: var(--accent-color);
             margin-bottom: 2.5rem;
-            font-size: 2.2rem;
-            word-break: keep-all;
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: -1px;
         }
 
         .reason-list {
             text-align: left;
-            display: inline-block;
-            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
         }
 
         .reason-item {
-            margin-bottom: 1.8rem;
-            font-size: 1.15rem;
-            line-height: 1.6;
-            padding: 15px;
-            border-radius: 15px;
+            padding: 20px;
+            border-radius: 10px;
             background-color: var(--bg-color);
-            opacity: 0;
-            transform: scale(0.9);
-            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            border-left: 5px solid var(--accent-color);
+            transition: transform 0.2s;
+            position: relative;
+            overflow: hidden;
         }
 
-        @keyframes popIn {
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+        .reason-item:hover {
+            transform: scale(1.02);
         }
 
-        .reason-item:nth-child(1) { animation-delay: 0.2s; }
-        .reason-item:nth-child(2) { animation-delay: 0.4s; }
-        .reason-item:nth-child(3) { animation-delay: 0.6s; }
-        .reason-item:nth-child(4) { animation-delay: 0.8s; }
+        .reason-title {
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            display: block;
+            color: var(--accent-color);
+        }
+
+        .reason-desc {
+            font-size: 1rem;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
 
         .theme-toggle {
             position: fixed;
             top: 20px;
             right: 20px;
-            padding: 12px 24px;
-            border-radius: 50px;
-            border: none;
-            background-color: var(--toggle-bg);
-            color: var(--text-color);
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: 2px solid var(--accent-color);
+            background: transparent;
+            color: var(--accent-color);
             cursor: pointer;
-            font-weight: bold;
-            box-shadow: 0 4px 15px var(--card-shadow);
-            transition: transform 0.2s;
+            font-weight: 900;
+            transition: all 0.2s;
         }
 
         .theme-toggle:hover {
-            transform: translateY(-2px);
+            background-color: var(--accent-color);
+            color: white;
         }
 
-        .emoji { 
-            font-size: 1.8rem; 
-            margin-right: 12px;
+        .warning-label {
             display: inline-block;
-            vertical-align: middle;
-        }
-
-        .content-text {
-            display: inline-block;
-            vertical-align: middle;
-            width: calc(100% - 50px);
+            background-color: var(--accent-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <button class="theme-toggle" id="themeToggle">🌙 밤 모드</button>
+    <button class="theme-toggle" id="themeToggle">THEME SWITCH</button>
 
     <div class="container">
-        <h1>👶 정유나가 아기인 이유</h1>
+        <span class="warning-label">혈압주의 / 반박불가</span>
+        <h1>🔥 정유나가 킹받는 이유</h1>
+        
         <div class="reason-list">
             <div class="reason-item">
-                <span class="emoji">🍼</span>
-                <span class="content-text">맛있는 거 먹을 때 세상에서 가장 행복한 표정을 지음 (볼따구 말랑지수 100%)</span>
+                <span class="reason-title">1. 전설의 읽씹 & 안읽씹</span>
+                <span class="reason-desc">인스타그램 스토리는 실시간으로 올라오는데 카톡 답장은 다음 날에 옴. 거의 연예인급 스케줄 소화 중이신 듯.</span>
             </div>
             <div class="reason-item">
-                <span class="emoji">💤</span>
-                <span class="content-text">졸릴 때 눈 비비면서 칭얼거리는 게 영락없는 3세 미만 아기임</span>
+                <span class="reason-title">2. 답도 없는 결정장애</span>
+                <span class="reason-desc">"아무거나 먹자" 해놓고 후보 내놓으면 다 싫다고 함. 결국 지가 먹고 싶은 거 나올 때까지 스무고개 해야 함.</span>
             </div>
             <div class="reason-item">
-                <span class="emoji">🧸</span>
-                <span class="content-text">귀여운 인형이나 소품만 보면 눈이 반짝거려서 안 사줄 수가 없음</span>
+                <span class="reason-title">3. 기적의 논리 펼치기</span>
+                <span class="reason-desc">말도 안 되는 억지 부려놓고 마지막엔 항상 "아 몰라 내가 맞아" 시전. 벽이랑 대화하는 게 더 생산적임.</span>
             </div>
             <div class="reason-item">
-                <span class="emoji">💕</span>
-                <span class="content-text">조금만 칭찬해줘도 기분 좋아져서 꼬리 흔드는 강아지마냥 웃음</span>
+                <span class="reason-title">4. 근본 없는 개그 코드</span>
+                <span class="reason-desc">지 혼자 빵 터져서 3분 동안 숨도 못 쉬고 웃는데, 옆에서 보면 그냥 안쓰러움. 웃음 장벽이 바닥을 뚫고 지하까지 내려감.</span>
             </div>
         </div>
     </div>
@@ -151,10 +157,10 @@
             const currentTheme = html.getAttribute('data-theme');
             if (currentTheme === 'dark') {
                 html.removeAttribute('data-theme');
-                themeToggle.innerHTML = '🌙 밤 모드';
+                themeToggle.innerText = 'DARK MODE';
             } else {
                 html.setAttribute('data-theme', 'dark');
-                themeToggle.innerHTML = '☀️ 낮 모드';
+                themeToggle.innerText = 'LIGHT MODE';
             }
         });
     </script>

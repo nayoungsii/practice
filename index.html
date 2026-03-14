@@ -3,114 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>정유나가 바보인 이유</title>
+    <title>정유나가 아기인 이유</title>
     <style>
         :root {
-            --bg-color: #fff0f5;
-            --text-color: #4a4a4a;
+            --bg-color: #fffaf0;
+            --text-color: #5d4037;
             --container-bg: #ffffff;
-            --accent-color: #ff69b4;
-            --toggle-bg: #ffe4e1;
+            --accent-color: #ffb74d;
+            --toggle-bg: #ffe0b2;
+            --card-shadow: rgba(0,0,0,0.05);
         }
 
         [data-theme="dark"] {
-            --bg-color: #1a1a1a;
-            --text-color: #e0e0e0;
-            --container-bg: #2d2d2d;
-            --accent-color: #ff85c0;
-            --toggle-bg: #3d3d3d;
+            --bg-color: #263238;
+            --text-color: #eceff1;
+            --container-bg: #37474f;
+            --accent-color: #ffd54f;
+            --toggle-bg: #455a64;
+            --card-shadow: rgba(0,0,0,0.3);
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-family: 'Pretendard', sans-serif;
+            font-family: 'Pretendard', -apple-system, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
             margin: 0;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .container {
             background-color: var(--container-bg);
             padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 30px;
+            box-shadow: 0 20px 40px var(--card-shadow);
             text-align: center;
             max-width: 600px;
             width: 90%;
+            border: 2px dashed var(--accent-color);
         }
 
         h1 {
             color: var(--accent-color);
-            margin-bottom: 2rem;
-            font-size: 2.5rem;
+            margin-bottom: 2.5rem;
+            font-size: 2.2rem;
+            word-break: keep-all;
         }
 
         .reason-list {
             text-align: left;
             display: inline-block;
+            width: 100%;
         }
 
         .reason-item {
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
+            margin-bottom: 1.8rem;
+            font-size: 1.15rem;
             line-height: 1.6;
+            padding: 15px;
+            border-radius: 15px;
+            background-color: var(--bg-color);
             opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 0.5s forwards;
+            transform: scale(0.9);
+            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
         }
 
-        @keyframes fadeIn {
+        @keyframes popIn {
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: scale(1);
             }
         }
 
         .reason-item:nth-child(1) { animation-delay: 0.2s; }
-        .reason-item:nth-child(2) { animation-delay: 0.5s; }
-        .reason-item:nth-child(3) { animation-delay: 0.8s; }
-        .reason-item:nth-child(4) { animation-delay: 1.1s; }
+        .reason-item:nth-child(2) { animation-delay: 0.4s; }
+        .reason-item:nth-child(3) { animation-delay: 0.6s; }
+        .reason-item:nth-child(4) { animation-delay: 0.8s; }
 
         .theme-toggle {
             position: fixed;
             top: 20px;
             right: 20px;
-            padding: 10px 20px;
-            border-radius: 30px;
+            padding: 12px 24px;
+            border-radius: 50px;
             border: none;
             background-color: var(--toggle-bg);
             color: var(--text-color);
             cursor: pointer;
             font-weight: bold;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px var(--card-shadow);
+            transition: transform 0.2s;
         }
 
-        .emoji { font-size: 1.5rem; margin-right: 10px; }
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+        }
+
+        .emoji { 
+            font-size: 1.8rem; 
+            margin-right: 12px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .content-text {
+            display: inline-block;
+            vertical-align: middle;
+            width: calc(100% - 50px);
+        }
     </style>
 </head>
 <body>
 
-    <button class="theme-toggle" id="themeToggle">🌙 다크 모드</button>
+    <button class="theme-toggle" id="themeToggle">🌙 밤 모드</button>
 
     <div class="container">
-        <h1>🔍 정유나가 바보인 이유</h1>
+        <h1>👶 정유나가 아기인 이유</h1>
         <div class="reason-list">
             <div class="reason-item">
-                <span class="emoji">🍦</span> 1. 아이스크림 먹으러 가자고 하면 자다가도 벌떡 일어남 (단순함)
+                <span class="emoji">🍼</span>
+                <span class="content-text">맛있는 거 먹을 때 세상에서 가장 행복한 표정을 지음 (볼따구 말랑지수 100%)</span>
             </div>
             <div class="reason-item">
-                <span class="emoji">📱</span> 2. 휴대폰 손에 들고 "내 핸드폰 어디 갔지?" 하고 5분 동안 찾음
+                <span class="emoji">💤</span>
+                <span class="content-text">졸릴 때 눈 비비면서 칭얼거리는 게 영락없는 3세 미만 아기임</span>
             </div>
             <div class="reason-item">
-                <span class="emoji">🤡</span> 3. 안 웃긴 농담에도 혼자 빵 터져서 넘어감 (웃음 장벽 지하 100층)
+                <span class="emoji">🧸</span>
+                <span class="content-text">귀여운 인형이나 소품만 보면 눈이 반짝거려서 안 사줄 수가 없음</span>
             </div>
             <div class="reason-item">
-                <span class="emoji">💖</span> 4. 사실은 너무 착해서 바보 소리 들을 정도로 다 퍼줌
+                <span class="emoji">💕</span>
+                <span class="content-text">조금만 칭찬해줘도 기분 좋아져서 꼬리 흔드는 강아지마냥 웃음</span>
             </div>
         </div>
     </div>
@@ -123,10 +151,10 @@
             const currentTheme = html.getAttribute('data-theme');
             if (currentTheme === 'dark') {
                 html.removeAttribute('data-theme');
-                themeToggle.innerHTML = '🌙 다크 모드';
+                themeToggle.innerHTML = '🌙 밤 모드';
             } else {
                 html.setAttribute('data-theme', 'dark');
-                themeToggle.innerHTML = '☀️ 라이트 모드';
+                themeToggle.innerHTML = '☀️ 낮 모드';
             }
         });
     </script>

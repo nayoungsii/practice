@@ -3,121 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>정유나가 킹받는 이유</title>
+    <title>정유나 ❤️ 김나영 궁합 분석</title>
     <style>
         :root {
-            --bg-color: #fff5f5;
-            --text-color: #2d3436;
+            --bg-color: #fdf2f8;
+            --text-color: #431407;
             --container-bg: #ffffff;
-            --accent-color: #d63031;
-            --toggle-bg: #fab1a0;
-            --card-shadow: rgba(214, 48, 49, 0.1);
+            --accent-color: #ec4899;
+            --secondary-color: #8b5cf6;
+            --card-shadow: rgba(236, 72, 153, 0.1);
         }
 
         [data-theme="dark"] {
-            --bg-color: #1e272e;
-            --text-color: #d2dae2;
-            --container-bg: #2f3542;
-            --accent-color: #ff4757;
-            --toggle-bg: #57606f;
+            --bg-color: #1a1013;
+            --text-color: #fce7f3;
+            --container-bg: #2d1b22;
+            --accent-color: #f472b6;
+            --secondary-color: #a78bfa;
             --card-shadow: rgba(0, 0, 0, 0.4);
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-family: 'Pretendard', -apple-system, sans-serif;
+            font-family: 'Pretendard', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             min-height: 100vh;
             margin: 0;
-            transition: all 0.3s ease;
+            padding: 40px 20px;
+            transition: all 0.4s ease;
         }
 
         .container {
             background-color: var(--container-bg);
             padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 15px 35px var(--card-shadow);
+            border-radius: 40px;
+            box-shadow: 0 25px 50px -12px var(--card-shadow);
             text-align: center;
-            max-width: 650px;
-            width: 90%;
-            border-top: 8px solid var(--accent-color);
+            max-width: 800px;
+            width: 100%;
+            border: 1px solid rgba(236, 72, 153, 0.2);
         }
 
-        h1 {
-            color: var(--accent-color);
-            margin-bottom: 2.5rem;
-            font-size: 2.5rem;
-            font-weight: 900;
-            letter-spacing: -1px;
-        }
+        .header { margin-bottom: 3rem; }
+        h1 { font-size: 2.2rem; margin-bottom: 0.5rem; color: var(--accent-color); }
+        .subtitle { opacity: 0.7; font-size: 1.1rem; }
 
-        .reason-list {
-            text-align: left;
+        .profile-section {
             display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
-        .reason-item {
+        .profile-card {
+            background: var(--bg-color);
             padding: 20px;
-            border-radius: 10px;
-            background-color: var(--bg-color);
-            border-left: 5px solid var(--accent-color);
-            transition: transform 0.2s;
-            position: relative;
-            overflow: hidden;
+            border-radius: 25px;
+            width: 200px;
+            transition: transform 0.3s;
         }
 
-        .reason-item:hover {
-            transform: scale(1.02);
-        }
+        .profile-card:hover { transform: translateY(-10px); }
+        .name { font-size: 1.5rem; font-weight: 800; margin-bottom: 10px; display: block; }
+        .birth { font-size: 0.9rem; opacity: 0.8; }
 
-        .reason-title {
-            font-weight: 800;
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-            display: block;
+        .heart {
+            font-size: 3rem;
             color: var(--accent-color);
+            animation: pulse 1.5s infinite;
         }
 
-        .reason-desc {
-            font-size: 1rem;
-            line-height: 1.5;
-            opacity: 0.9;
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .score-box {
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 30px;
+            background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+            color: white;
+        }
+
+        .score-title { font-size: 1.2rem; font-weight: 600; }
+        .score-num { font-size: 4rem; font-weight: 900; display: block; }
+
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            text-align: left;
+            margin-top: 2rem;
+        }
+
+        .analysis-item {
+            background: var(--bg-color);
+            padding: 20px;
+            border-radius: 20px;
+        }
+
+        .item-title {
+            font-weight: 800;
+            color: var(--secondary-color);
+            display: block;
+            margin-bottom: 10px;
         }
 
         .theme-toggle {
             position: fixed;
             top: 20px;
             right: 20px;
-            padding: 12px 20px;
-            border-radius: 8px;
-            border: 2px solid var(--accent-color);
-            background: transparent;
-            color: var(--accent-color);
-            cursor: pointer;
-            font-weight: 900;
-            transition: all 0.2s;
-        }
-
-        .theme-toggle:hover {
-            background-color: var(--accent-color);
-            color: white;
-        }
-
-        .warning-label {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: white;
-            padding: 4px 12px;
+            padding: 10px 20px;
             border-radius: 20px;
-            font-size: 0.8rem;
-            margin-bottom: 15px;
+            border: none;
+            background: var(--accent-color);
+            color: white;
             font-weight: bold;
+            cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+            .analysis-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -126,25 +139,47 @@
     <button class="theme-toggle" id="themeToggle">THEME SWITCH</button>
 
     <div class="container">
-        <span class="warning-label">혈압주의 / 반박불가</span>
-        <h1>🔥 정유나가 킹받는 이유</h1>
-        
-        <div class="reason-list">
-            <div class="reason-item">
-                <span class="reason-title">1. 전설의 읽씹 & 안읽씹</span>
-                <span class="reason-desc">인스타그램 스토리는 실시간으로 올라오는데 카톡 답장은 다음 날에 옴. 거의 연예인급 스케줄 소화 중이신 듯.</span>
+        <div class="header">
+            <h1>정유나 ❤️ 김나영</h1>
+            <p class="subtitle">2004년 원숭이띠 동갑내기 스페셜 궁합 분석</p>
+        </div>
+
+        <div class="profile-section">
+            <div class="profile-card">
+                <span class="name">정유나</span>
+                <span class="birth">2004. 02. 28</span>
+                <p>♓ 물고기자리</p>
             </div>
-            <div class="reason-item">
-                <span class="reason-title">2. 답도 없는 결정장애</span>
-                <span class="reason-desc">"아무거나 먹자" 해놓고 후보 내놓으면 다 싫다고 함. 결국 지가 먹고 싶은 거 나올 때까지 스무고개 해야 함.</span>
+            <div class="heart">❤️</div>
+            <div class="profile-card">
+                <span class="name">김나영</span>
+                <span class="birth">2004. 12. 21</span>
+                <p>♐ 사수자리</p>
             </div>
-            <div class="reason-item">
-                <span class="reason-title">3. 기적의 논리 펼치기</span>
-                <span class="reason-desc">말도 안 되는 억지 부려놓고 마지막엔 항상 "아 몰라 내가 맞아" 시전. 벽이랑 대화하는 게 더 생산적임.</span>
+        </div>
+
+        <div class="score-box">
+            <span class="score-title">종합 궁합 지수</span>
+            <span class="score-num">94%</span>
+            <p><strong>"전생에 쌍둥이였을지도 모를 환상의 콤비"</strong></p>
+        </div>
+
+        <div class="analysis-grid">
+            <div class="analysis-item">
+                <span class="item-title">🐵 띠 궁합 (원숭이 & 원숭이)</span>
+                같은 2004년생 원숭이띠로, 에너지가 넘치고 장난기가 가득한 관계입니다. 서로의 드립을 가장 잘 받아주는 최고의 '찐친' 관계를 형성합니다.
             </div>
-            <div class="reason-item">
-                <span class="reason-title">4. 근본 없는 개그 코드</span>
-                <span class="reason-desc">지 혼자 빵 터져서 3분 동안 숨도 못 쉬고 웃는데, 옆에서 보면 그냥 안쓰러움. 웃음 장벽이 바닥을 뚫고 지하까지 내려감.</span>
+            <div class="analysis-item">
+                <span class="item-title">✨ 별자리 궁합 (물고기 & 사수)</span>
+                감성적인 유나와 솔직하고 자유로운 나영이 만났습니다. 서로 다른 성향이 오히려 보완제가 되어, 유나는 나영에게 안정을, 나영은 유나에게 즐거움을 줍니다.
+            </div>
+            <div class="analysis-item">
+                <span class="item-title">🤝 관계 특징</span>
+                눈빛만 봐도 무슨 생각 하는지 아는 사이. 가끔 티격태격해도 5분 뒤면 다시 웃으면서 떠들고 있을 확률 100%입니다.
+            </div>
+            <div class="analysis-item">
+                <span class="item-title">💡 주의사항</span>
+                둘 다 한번 웃음보 터지면 수습이 안 되니 엄숙한 장소(수업 시간 등)에서는 서로 마주 보지 않는 것을 권장합니다.
             </div>
         </div>
     </div>
@@ -157,10 +192,8 @@
             const currentTheme = html.getAttribute('data-theme');
             if (currentTheme === 'dark') {
                 html.removeAttribute('data-theme');
-                themeToggle.innerText = 'DARK MODE';
             } else {
                 html.setAttribute('data-theme', 'dark');
-                themeToggle.innerText = 'LIGHT MODE';
             }
         });
     </script>

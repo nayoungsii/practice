@@ -11,7 +11,7 @@ export function OnboardingIntroSlide({
 
   return (
     <section className="flex h-full flex-col">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between animate-fade-up">
         <div className="rounded-full bg-white/80 px-3 py-1 text-[11px] font-semibold text-slate-500 shadow-sm ring-1 ring-slate-100 backdrop-blur">
           {index + 1} / {total}
         </div>
@@ -29,27 +29,29 @@ export function OnboardingIntroSlide({
       </div>
 
       <div className="mt-8 flex-1">
-        <div className="rounded-[32px] bg-gradient-to-br from-white via-white to-slate-100 p-6 shadow-[0_22px_50px_rgba(15,23,42,0.10)] ring-1 ring-white/80">
+        <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-white via-white to-slate-100 p-6 shadow-[0_22px_50px_rgba(15,23,42,0.10)] ring-1 ring-white/80">
+          <div className="pointer-events-none absolute -right-10 -top-12 h-32 w-32 rounded-full bg-emerald-100/70 blur-3xl animate-pulse-soft" />
+          <div className="pointer-events-none absolute -left-8 bottom-16 h-24 w-24 rounded-full bg-sky-100/70 blur-3xl animate-float-slow" />
           <div className="mb-6 flex items-center justify-between">
             <div>
-              <span className="rounded-full bg-emerald-50 px-3 py-1 text-[11px] font-semibold text-emerald-700">
+              <span className="inline-flex rounded-full bg-emerald-50 px-3 py-1 text-[11px] font-semibold text-emerald-700 animate-scale-in">
                 AI 취업 전략
               </span>
-              <h1 className="mt-4 text-[30px] font-extrabold leading-[1.18] tracking-[-0.04em] text-slate-950">
+              <h1 className="mt-4 text-[30px] font-extrabold leading-[1.18] tracking-[-0.04em] text-slate-950 animate-fade-up-delayed">
                 {slide.headline}
               </h1>
             </div>
           </div>
-          <p className="max-w-[280px] text-[15px] leading-6 text-slate-500">
+          <p className="max-w-[280px] text-[15px] leading-6 text-slate-500 animate-fade-up-late">
             {slide.subtext}
           </p>
-          <div className="mt-8">
+          <div className="mt-8 animate-rise-card">
             <IntroVisual type={slide.visual} />
           </div>
         </div>
       </div>
 
-      <div className="mt-6 flex items-center gap-3">
+      <div className="mt-6 flex items-center gap-3 animate-fade-up-late">
         {index > 0 ? (
           <button
             type="button"

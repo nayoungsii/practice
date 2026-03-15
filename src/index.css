@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+:root {
+  color: #0f172a;
+  background: #eef2f6;
+  font-family:
+    Pretendard,
+    "Apple SD Gothic Neo",
+    "Noto Sans KR",
+    system-ui,
+    sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+}
+
+button {
+  font: inherit;
+}
+
+@theme {
+  --font-display:
+    Manrope,
+    Pretendard,
+    "Apple SD Gothic Neo",
+    sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
